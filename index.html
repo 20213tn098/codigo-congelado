@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Educativo de Programación</title>
+    <meta name="description" content="Un juego de preguntas y respuestas para aprender programación.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Pantalla Principal -->
+        <section id="screen-start" class="screen active">
+            <div class="card glass">
+                <div class="avatar-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <h1>Ingresa tu nombre</h1>
+                <input type="text" id="player-name" placeholder="Tu nombre aquí..." autocomplete="off">
+                <button id="btn-start" class="btn-primary">Empezar</button>
+            </div>
+        </section>
+
+        <!-- Pantalla de Preguntas -->
+        <section id="screen-game" class="screen">
+            <div class="card glass game-card">
+                <header class="game-header">
+                    <div class="level" id="level-display">Nivel 1</div>
+                    <div class="lives" id="lives-display">
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                        <span class="heart">❤️</span>
+                        <span class="lives-text">Vidas</span>
+                    </div>
+                    <div class="score" id="score-display">0 puntos</div>
+                </header>
+                
+                <div class="question-container">
+                    <h2 id="question-text">¿Qué imprime este código?</h2>
+                    <pre><code id="question-code"></code></pre>
+                </div>
+
+                <div class="options-container" id="options-container">
+                    <!-- Opciones generadas por JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Pantalla de Victoria -->
+        <section id="screen-win" class="screen">
+            <div class="card glass win-card">
+                <div class="icon-win">🏆</div>
+                <h2>Felicidades, has contestado correctamente.</h2>
+                <p>Tu puntuación es:</p>
+                <div class="final-score highlight" id="win-score">100%</div>
+                <div class="action-buttons">
+                    <button id="btn-exit-win" class="btn-secondary">Salir</button>
+                    <button id="btn-restart-win" class="btn-primary">Jugar de nuevo</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pantalla de Derrota -->
+        <section id="screen-lose" class="screen">
+            <div class="card glass lose-card">
+                <div class="derrota-box">
+                    <h2>DERROTA</h2>
+                </div>
+                <p>Has perdido todas tus vidas</p>
+                <div class="stats">
+                    <p>Puntuación final: <span id="lose-score">20 puntos</span></p>
+                    <p>Respuestas correctas: <span id="lose-correct">2</span></p>
+                    <p>Respuestas incorrectas: <span id="lose-incorrect">3</span></p>
+                </div>
+                <div class="action-buttons vertical">
+                    <button id="btn-restart-lose" class="btn-primary">Jugar de nuevo</button>
+                    <button id="btn-home-lose" class="btn-secondary">Volver al inicio</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
